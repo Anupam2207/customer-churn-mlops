@@ -1,0 +1,27 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv 
+      data/processed/train.csv data/processed/test.csv 0.2 42
+    deps:
+    - path: data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+      hash: md5
+      md5: 0f9de68e012bd3aed5fa7cdc9fc421af
+      size: 977501
+    - path: src/preprocess.py
+      hash: md5
+      md5: a72818685638001ada3afc7a1fd1566b
+      size: 1224
+    params:
+      params.yaml:
+        train.random_state: 42
+        train.test_size: 0.2
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: c0a2b4ab1df93ee5fe5f38bc3f75cee8
+      size: 354604
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 16acc07085eae3dc5ff768c485b4113e
+      size: 1414759
