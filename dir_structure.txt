@@ -1,0 +1,12 @@
+customer-churn-mlops/
+├── .gitignore
+├── README.md
+├── data/
+├── src/
+├── notebooks/
+├── params.yaml
+├── .dvc/
+├── .github/
+│   └── workflows/
+├── reports/
+└── docs/
