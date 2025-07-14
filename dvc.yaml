@@ -1,0 +1,15 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv 
+      data/processed/train.csv data/processed/test.csv 0.2 42
+    deps:
+    - data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+    - src/preprocess.py
+    params:
+    - train.random_state
+    - train.test_size
+    outs:
+    - data/processed/test.csv
+    - data/processed/train.csv
+  train:
+    cmd: \
