@@ -13,7 +13,8 @@ venv/
 
 # DVC
 .dvc/
-data/
++ data/*
+!data/**/*.dvc
 *.pkl
 *.log
 mlruns/
