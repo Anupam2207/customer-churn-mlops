@@ -12,4 +12,10 @@ stages:
     - data/processed/test.csv
     - data/processed/train.csv
   train:
-    cmd: \
+    cmd: python src/train.py data/processed/train.csv models/model.pkl
+  evaluate:
+    cmd: python src/evaluate.py data/processed/test.csv models/model.pkl
+    deps:
+    - data/processed/test.csv
+    - models/model.pkl
+    - src/evaluate.py
