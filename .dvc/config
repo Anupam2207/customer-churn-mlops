@@ -1,0 +1,7 @@
+[core]
+    remote = local_remote
+['remote "gdrive_remote"']
+    url = gdrive://1EZo5vrWess0HgkPKegKoTADl9NX83mdO
+    gdrive_use_service_account = false
+['remote "local_remote"']
+    url = G:/WORKSPACE/Git/dvc-storage

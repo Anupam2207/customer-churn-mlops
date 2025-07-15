@@ -1,0 +1,19 @@
+cmd: python src/evaluate.py data/processed/test.csv models/model.pkl
+deps:
+- path: data/processed/test.csv
+  hash: md5
+  md5: c0a2b4ab1df93ee5fe5f38bc3f75cee8
+  size: 354604
+- path: models/model.pkl
+  hash: md5
+  md5: eeed9a1369051483b0586b7802ef9296
+  size: 521638
+- path: src/evaluate.py
+  hash: md5
+  md5: 031988d60e18cb2ecfd99aabc21a3784
+  size: 1080
+outs:
+- path: metrics.json
+  hash: md5
+  md5: e5f6a5b5a98f7b8f5735641e1302ea89
+  size: 77
