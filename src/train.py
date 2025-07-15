@@ -1,8 +1,8 @@
-# src/train.py
 import pandas as pd
 import sys
 import mlflow
 import pickle
+import os
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
@@ -17,7 +17,7 @@ def train_model(train_path, model_path, params):
         criterion=params["criterion"],
         random_state=params["random_state"]
     )
-    
+
     model.fit(X, y)
     preds = model.predict(X)
     acc = accuracy_score(y, preds)
@@ -25,10 +25,14 @@ def train_model(train_path, model_path, params):
     mlflow.log_params(params)
     mlflow.log_metric("train_accuracy", acc)
 
+    # ✅ Create model directory if it doesn't exist
+    os.makedirs(os.path.dirname(model_path), exist_ok=True)
+
     with open(model_path, "wb") as f:
         pickle.dump(model, f)
 
     print(f"Model trained. Accuracy: {acc:.4f}")
+
 
 if __name__ == "__main__":
     train_csv = sys.argv[1]
