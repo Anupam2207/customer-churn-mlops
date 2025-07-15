@@ -1,8 +1,8 @@
-# src/evaluate.py
 import pandas as pd
 import sys
 import pickle
 import mlflow
+import json
 from sklearn.metrics import accuracy_score, f1_score
 
 def evaluate(test_csv, model_path):
@@ -23,6 +23,15 @@ def evaluate(test_csv, model_path):
 
     print(f"Test Accuracy: {acc:.4f}")
     print(f"Test F1 Score: {f1:.4f}")
+
+    # ✅ Save metrics correctly
+    metrics = {
+        "accuracy": acc,
+        "f1_score": f1
+    }
+
+    with open("metrics.json", "w") as f:
+        json.dump(metrics, f, indent=4)
 
 if __name__ == "__main__":
     test_csv = sys.argv[1]
