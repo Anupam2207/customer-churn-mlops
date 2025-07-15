@@ -26,9 +26,9 @@ jobs:
           pip install -r requirements.txt
           pip install dvc[gs] mlflow scikit-learn pandas
 
-      - name: 🧪 Run DVC pipeline
+      - name: 🧪 Run DVC pipeline (skip pull)
         run: |
-          dvc pull
+          echo "Skipping dvc pull (local remote not available)"
           dvc repro
 
       - name: 📊 Show metrics
