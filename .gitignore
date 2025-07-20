@@ -12,7 +12,7 @@ env/
 venv/
 
 # DVC
-.dvc/
+#.dvc/
 + data/*
 !data/**/*.dvc
 *.pkl
